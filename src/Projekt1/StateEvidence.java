@@ -21,7 +21,7 @@ public class StateEvidence {
             if (count<1){scanner.nextLine();}
             count++;
             String textLine = scanner.nextLine();
-            String[] value = textLine.split(";");
+            String[] value = textLine.split("\t");
             String shorts = value[0];
             String name = value[1];
             Integer fullTax = Integer.parseInt(value[2]);
