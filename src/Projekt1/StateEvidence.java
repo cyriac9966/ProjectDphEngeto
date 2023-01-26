@@ -15,11 +15,8 @@ public class StateEvidence {
 
     public static StateEvidence importStates(String fileName){
         StateEvidence result = new StateEvidence();
-        int count = 0;
         try(Scanner scanner = new Scanner(new BufferedReader(new FileReader(fileName)))) {
         while (scanner.hasNextLine()){
-            if (count<1){scanner.nextLine();}
-            count++;
             String textLine = scanner.nextLine();
             String[] value = textLine.split("\t");
             String shorts = value[0];
@@ -58,9 +55,10 @@ public class StateEvidence {
                 result.add(state);
             } else other.add(state);
         }
+        System.out.println("státy které mají sazbu vyšší než: "+input);
         Collections.sort(result);
         result.forEach(System.out::println);
-        System.out.println("===============================\nStáty které mají sazbu nižší");
+        System.out.println("===============================\nStáty které mají sazbu nižší než: "+input);
 
         for (State state : other) {
             System.out.println("(" + state.getShorts() + ") " + state.getFullTax());
